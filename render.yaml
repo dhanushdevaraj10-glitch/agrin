@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: agrin-backend
+    env: python
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.2
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        value: postgresql://agrin:agrin_password@localhost:5432/agrin_db
+
+  - type: static
+    name: agrin-frontend
+    env: static
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://agrin-backend.onrender.com
