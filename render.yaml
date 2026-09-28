@@ -16,3 +16,7 @@ services:
     envVars:
       - key: VITE_API_URL
         value: https://agrin-backend-lnhc.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
