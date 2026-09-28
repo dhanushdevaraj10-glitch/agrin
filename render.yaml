@@ -15,4 +15,4 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        value: https://agrin-backend.onrender.com
+        value: https://agrin-backend-lnhc.onrender.com
