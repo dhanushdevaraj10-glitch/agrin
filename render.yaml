@@ -10,10 +10,6 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.2
-      - key: GEMINI_API_KEY
-        sync: false
-      - key: DATABASE_URL
-        value: postgresql://agrin:agrin_password@localhost:5432/agrin_db
 
   - type: web
     name: agrin-frontend
