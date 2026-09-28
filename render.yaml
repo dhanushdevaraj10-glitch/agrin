@@ -15,8 +15,9 @@ services:
       - key: DATABASE_URL
         value: postgresql://agrin:agrin_password@localhost:5432/agrin_db
 
-  - type: static
+  - type: web
     name: agrin-frontend
+    env: static
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
